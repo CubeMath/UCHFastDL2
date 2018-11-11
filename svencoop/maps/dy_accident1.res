@@ -173,7 +173,10 @@ models/decay/zombie01.mdl
 models/decay/zombie02.mdl
 models/decay/zombie03.mdl
 models/decay/zombie04.mdl
+models/player/islave/islave.bmp
+models/player/islave/islave.mdl
 sound/decay/ambience/alienflyby2.wav
+sound/decay/ambience/whl1.wav
 sound/decay/apache/osprey_takeoff.wav
 sound/decay/barney/ba_attacking0.wav
 sound/decay/barney/ba_attacking1.wav
