@@ -10,6 +10,7 @@ dy_*
 hl_c13_and_a_half
 
 The only maps that are still modified and working are:
+th_*
 choose_campaign_*
 disco_boss
 dynamic_mapvote
