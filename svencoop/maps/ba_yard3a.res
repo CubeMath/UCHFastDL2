@@ -5,5 +5,3 @@ models/cubemath/key.mdl
 models/cubemath/padlock.mdl
 models/player/nsmbw_larry/nsmbw_larry.bmp
 models/player/nsmbw_larry/nsmbw_larry.mdl
-models/player/crash_bandicoot/crash_bandicoot.bmp
-models/player/crash_bandicoot/crash_bandicoot.mdl
