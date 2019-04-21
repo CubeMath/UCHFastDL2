@@ -1,6 +1,5 @@
 No need to download these vanilla maps:
 hl_*
-of*
 
 These maps don't have any entities:
 dy_*
@@ -11,5 +10,7 @@ ba_*
 choose_campaign_*
 disco_boss
 dynamic_mapvote
-uplink
+instinct_*
+of*
 th_*
+uplink
