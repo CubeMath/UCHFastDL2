@@ -66,7 +66,7 @@ models/decay/newspaper_sci01.mdl
 models/decay/obj_chair.mdl
 models/decay/obj_pipe1_curve.mdl
 models/decay/obj_pipe1_straight.mdl
-models/decay/osprey.mdl
+models/decay/osprey2.mdl
 models/decay/outtakes_scientist.mdl
 models/decay/outtakes_scientist01.mdl
 models/decay/outtakes_scientist02.mdl
