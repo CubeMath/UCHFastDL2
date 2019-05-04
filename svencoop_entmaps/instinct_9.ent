@@ -1,11 +1,9 @@
 {
 "wad" "decals.wad;halflife.wad;hlinstinct.wad;opfor.wad;xeno.wad;liquids.wad;"
 "mapversion" "220"
-"mapversion" "220"
 "MaxRange" "9000"
 "sounds" "1"
 "skyname" "cliff"
-"classname" "worldspawn"
 "classname" "worldspawn"
 }
 {
@@ -758,31 +756,6 @@
 "angles" "0 0 0"
 "rendercolor" "0 0 0"
 "classname" "monster_human_assassin"
-}
-{
-"$v_origin" "1744 -464 -152"
-"origin" "1744 -464 -152"
-"maxhullsize" "0 0 0"
-"minhullsize" "0 0 0"
-"rendercolor" "0 0 0"
-"angles" "0 181 0"
-"sweeparc" "360"
-"sound" "1"
-"targetname" "tentaclesm"
-"spawnflags" "64"
-"classname" "monster_tentacle"
-}
-{
-"m_iAppendSpaces" "0"
-"m_trigonometricBehaviour" "0"
-"m_FloatConversion" "0"
-"m_iszValueType" "0"
-"netname" "tentaclesm"
-"m_iszSrcValueName" "$v_origin"
-"target" "tentaclesm"
-"m_iszDstValueName" "origin"
-"spawnflags" "24"
-"classname" "trigger_copyvalue"
 }
 {
 "model" "*84"
@@ -1932,6 +1905,13 @@
 "classname" "func_wall"
 }
 {
+"model" "*176"
+"map" "instinct_10"
+"classname" "trigger_changelevel"
+"targetname" "change_lvl"
+"spawnflags" "2"
+}
+{
 "origin" "430 1098 -64"
 "angles" "0 90 0"
 "rendercolor" "0 0 0"
@@ -1949,7 +1929,7 @@
 "origin" "426 1045 1"
 "exploshake" "0.6"
 "explotree1" "0.2"
-"explotree2" "0.4"
+"explotree2" "4.2"
 "explotree3" "0.6"
 "explotree4" "0.8"
 "explotree5" "1"
@@ -1968,7 +1948,6 @@
 "explotree18" "3.6"
 "explotree19" "3.8"
 "explotree20" "4"
-"explotree2" "4.2"
 "explotree22" "4.4"
 "explotree23" "4.8"
 "explofade" "4.9"
@@ -2208,7 +2187,7 @@
 }
 {
 "origin" "1198 3202 12"
-"health" "7000"
+"health" "5000"
 "angles" "0 275 0"
 "rendercolor" "0 0 0"
 "TriggerCondition" "4"
@@ -2618,10 +2597,10 @@
 "classname" "squadmaker"
 }
 {
-"origin" "415 212 197"
+"origin" "415 212 196"
 "h_min" "360"
 "h_max" "360"
-"mindist" "50"
+"mindist" "10"
 "maxdist" "5000"
 "firedelay" "3"
 "spawnflags" "17"
@@ -2726,11 +2705,29 @@
 "classname" "env_sprite"
 }
 {
-"model" "*176"
-"map" "instinct_10"
-"targetname" "change_lvl"
-"spawnflags" "2"
-"classname" "trigger_changelevel"
+"$v_origin" "1744 -464 -152"
+"origin" "1744 -464 -152"
+"maxhullsize" "0 0 0"
+"minhullsize" "0 0 0"
+"rendercolor" "0 0 0"
+"angles" "0 181 0"
+"sweeparc" "360"
+"sound" "1"
+"targetname" "tentaclesm"
+"spawnflags" "64"
+"classname" "monster_tentacle"
+}
+{
+"m_iAppendSpaces" "0"
+"m_trigonometricBehaviour" "0"
+"m_FloatConversion" "0"
+"m_iszValueType" "0"
+"netname" "tentaclesm"
+"m_iszSrcValueName" "$v_origin"
+"target" "tentaclesm"
+"m_iszDstValueName" "origin"
+"spawnflags" "24"
+"classname" "trigger_copyvalue"
 }
 {
 "model" "*176"
@@ -2841,4 +2838,3 @@
 "targetname" "percent_lock_1"
 "classname" "multi_manager"
 }
- 

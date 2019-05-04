@@ -1,10 +1,8 @@
 {
 "wad" "decals.wad;halflife.wad;hlinstinct.wad;opfor.wad;xeno.wad;liquids.wad;"
 "mapversion" "220"
-"mapversion" "220"
 "MaxRange" "4096"
 "sounds" "1"
-"classname" "worldspawn"
 "classname" "worldspawn"
 }
 {
@@ -2763,9 +2761,9 @@
 {
 "model" "*166"
 "map" "instinct_9"
+"classname" "trigger_changelevel"
 "targetname" "change_lvl"
 "spawnflags" "2"
-"classname" "trigger_changelevel"
 }
 {
 "origin" "1475 -2145 -640"
@@ -3153,4 +3151,3 @@
 "targetname" "percent_lock_2"
 "classname" "multi_manager"
 }
- 

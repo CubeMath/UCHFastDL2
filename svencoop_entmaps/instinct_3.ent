@@ -2,10 +2,8 @@
 "wad" "opfor.wad;xeno.wad;halflife.wad;"
 "mapversion" "220"
 "WaveHeight" "0.0"
-"mapversion" "220"
 "MaxRange" "4096"
 "sounds" "1"
-"classname" "worldspawn"
 "classname" "worldspawn"
 }
 {
@@ -4621,7 +4619,6 @@
 }
 {
 "model" "*337"
-"master" "percent_lock_1_unlock_ms"
 "wait" "10.1"
 "speed" "5"
 "angles" "0 0 0"
@@ -4629,6 +4626,7 @@
 "rendercolor" "0 0 0"
 "spawnflags" "1"
 "classname" "func_button"
+"master" "percent_lock_1_unlock_ms"
 }
 {
 "origin" "2638 -568 -924"
@@ -6391,4 +6389,3 @@
 "targetname" "percent_lock_3"
 "classname" "multi_manager"
 }
- 

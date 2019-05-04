@@ -2,10 +2,8 @@
 "wad" "decals.wad;halflife.wad;hlinstinct.wad;opfor.wad;xeno.wad;liquids.wad;"
 "mapversion" "220"
 "WaveHeight" "0.0"
-"mapversion" "220"
 "MaxRange" "4096"
 "sounds" "1"
-"classname" "worldspawn"
 "classname" "worldspawn"
 }
 {
@@ -1982,11 +1980,14 @@
 "description" "Seems to be a keycard for accessing all elevators."
 "target_on_collect" "doortext2"
 "weight" "1"
-"carried_hidden" "0"
+"holder_keep_on_death" "0"
+"holder_can_drop" "1"
+"return_timelimit" "10"
+"carried_sequence" "1"
+"carried_sequencename" "idle"
+"carried_hidden" "1"
 "targetname" "keycard1"
 "model" "models/w_security.mdl"
-"return_timelimit" "20"
-"holder_can_drop" "1"
 "maxhullsize" "0 0 0"
 "minhullsize" "0 0 0"
 "spawnflags" "768"
@@ -4937,12 +4938,11 @@
 }
 {
 "origin" "1116 433 -248"
-"health" "-20"
+"health" "500"
 "skill" "1"
 "angles" "0 0 0"
 "rendercolor" "0 0 0"
 "spawnflags" "32"
-"health" "500"
 "classname" "monster_sentry"
 }
 {
@@ -6587,4 +6587,3 @@
 "model" "models/tree.mdl"
 "classname" "item_generic"
 }
- 

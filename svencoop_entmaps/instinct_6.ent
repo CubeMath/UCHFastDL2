@@ -4,7 +4,6 @@
 "MaxRange" "4096"
 "sounds" "1"
 "classname" "worldspawn"
-"classname" "worldspawn"
 }
 {
 "origin" "-944 480 -320"
@@ -4098,7 +4097,6 @@
 }
 {
 "model" "*277"
-"target" "activate_key_1"
 "spawnobject" "6"
 "gibmodel" "models/mil_crategibs.mdl"
 "rendercolor" "0 0 0"
@@ -4107,6 +4105,7 @@
 "health" "90"
 "spawnflags" "256"
 "classname" "func_breakable"
+"target" "activate_key_1"
 }
 {
 "model" "*278"
@@ -4694,6 +4693,13 @@
 "classname" "func_illusionary"
 }
 {
+"model" "*322"
+"map" "instinct_7"
+"classname" "trigger_changelevel"
+"targetname" "change_lvl"
+"spawnflags" "2"
+}
+{
 "origin" "-144 -390 -346"
 "texture" "{WATER3"
 "classname" "infodecal"
@@ -5162,8 +5168,6 @@
 }
 {
 "origin" "383 1524 -719"
-"trigger_condition" "4"
-"trigger_target" "percent_lock_1_r1"
 "monstertype" "monster_alien_babyvoltigore"
 "maxhullsize" "0 0 0"
 "minhullsize" "0 0 0"
@@ -5178,11 +5182,11 @@
 "angles" "0 0 0"
 "spawnflags" "33"
 "classname" "squadmaker"
+"trigger_condition" "4"
+"trigger_target" "percent_lock_1_r1"
 }
 {
 "origin" "469 1652 -739"
-"trigger_condition" "4"
-"trigger_target" "percent_lock_1_r2"
 "monstertype" "monster_alien_babyvoltigore"
 "maxhullsize" "0 0 0"
 "minhullsize" "0 0 0"
@@ -5197,11 +5201,11 @@
 "angles" "0 0 0"
 "spawnflags" "33"
 "classname" "squadmaker"
+"trigger_condition" "4"
+"trigger_target" "percent_lock_1_r2"
 }
 {
 "origin" "555 1678 -719"
-"trigger_condition" "4"
-"trigger_target" "percent_lock_1_r3"
 "monstertype" "monster_alien_babyvoltigore"
 "maxhullsize" "0 0 0"
 "minhullsize" "0 0 0"
@@ -5216,11 +5220,11 @@
 "angles" "0 0 0"
 "spawnflags" "33"
 "classname" "squadmaker"
+"trigger_condition" "4"
+"trigger_target" "percent_lock_1_r3"
 }
 {
 "origin" "483 1811 -739"
-"trigger_condition" "4"
-"trigger_target" "percent_lock_1_r4"
 "monstertype" "monster_alien_voltigore"
 "maxhullsize" "0 0 0"
 "minhullsize" "0 0 0"
@@ -5235,6 +5239,8 @@
 "angles" "0 0 0"
 "spawnflags" "33"
 "classname" "squadmaker"
+"trigger_condition" "4"
+"trigger_target" "percent_lock_1_r4"
 }
 {
 "origin" "475 1990 -740"
@@ -6091,13 +6097,6 @@
 }
 {
 "model" "*322"
-"targetname" "change_lvl"
-"map" "instinct_7"
-"spawnflags" "2"
-"classname" "trigger_changelevel"
-}
-{
-"model" "*322"
 "origin" "24 0 -40"
 "rendermode" "1"
 "classname" "func_wall"
@@ -6253,4 +6252,3 @@
 "triggerstate" "1"
 "classname" "trigger_relay"
 }
- 
