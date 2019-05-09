@@ -208,9 +208,9 @@ sound/dy/b/aa.wav
 sound/dy/b/ab.wav
 sound/dy/b/ac.wav
 sound/dy/b/ad.wav
-sound/dy/b/ad_alt.wav
+sound/dy/b/ae.wav
 sound/dy/b/af.wav
-sound/dy/b/af_alt.wav
+sound/dy/b/ag.wav
 sound/dy/b/ah.wav
 sound/dy/b/ai.wav
 sound/dy/b/aj.wav
@@ -239,8 +239,8 @@ sound/dy/b/bf.wav
 sound/dy/b/bg.wav
 sound/dy/b/bh.wav
 sound/dy/b/bi.wav
-sound/dy/b/bi_alt.wav
-sound/dy/b/bi_alt2.wav
+sound/dy/b/bj.wav
+sound/dy/b/bk.wav
 sound/dy/b/bl.wav
 sound/dy/b/bm.wav
 sound/dy/b/bn.wav
@@ -450,8 +450,8 @@ sound/dy/k/bt.wav
 sound/dy/k/bu.wav
 sound/dy/k/bv.wav
 sound/dy/k/bw.wav
-sound/dy/k/bwfail.wav
-sound/dy/k/bwopen.wav
+sound/dy/k/bx.wav
+sound/dy/k/by.wav
 sound/dy/k/bz.wav
 sound/dy/k/ca.wav
 sound/dy/k/cb.wav
@@ -583,7 +583,7 @@ sound/dy/r/ae.wav
 sound/dy/r/af.wav
 sound/dy/r/ag.wav
 sound/dy/r/ah.wav
-sound/dy/r/ah2.wav
+sound/dy/r/ai.wav
 sound/dy/r/aj.wav
 sound/dy/r/ak.wav
 sound/dy/r/al.wav
@@ -591,7 +591,7 @@ sound/dy/r/am.wav
 sound/dy/r/an.wav
 sound/dy/r/ao.wav
 sound/dy/r/ap.wav
-sound/dy/r/ap2.wav
+sound/dy/r/aq.wav
 sound/dy/r/ar.wav
 sound/dy/r/as.wav
 sound/dy/r/at.wav
@@ -706,10 +706,10 @@ sound/dy/w1/b.wav
 sound/dy/w1/c.wav
 sound/dy/w1/d.wav
 sound/dy/w1/e.wav
-sound/dy/w1/e2.wav
+sound/dy/w1/f.wav
 sound/dy/w1/g.wav
 sound/dy/w1/h.wav
-sound/dy/w1/h_player.wav
+sound/dy/w1/i.wav
 sound/dy/w1/j.wav
 sound/dy/w1/k.wav
 sound/dy/w1/l.wav
@@ -725,4 +725,4 @@ sound/dy/w1/u.wav
 sound/dy/w2/a.wav
 sound/dy/w2/b.wav
 sound/dy/w2/c.wav
-sound/decay/sentences.txt
+sound/dy/sentences.txt
