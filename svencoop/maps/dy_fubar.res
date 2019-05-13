@@ -1,3 +1,5 @@
+sprites/decay/weapon_slave.txt
+sprites/decay/weapon_slave.spr
 sprites/hl_weapons/weapon_hl357.txt
 models/decay/5ton.mdl
 models/decay/5ton_clear.mdl
