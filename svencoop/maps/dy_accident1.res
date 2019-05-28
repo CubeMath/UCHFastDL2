@@ -170,7 +170,7 @@ models/decay/w_SQKNEST.mdl
 models/dy/bn.mdl
 models/decay/w_sutchel.mdl
 models/decay/w_tire.mdl
-models/dy/an.mdl
+models/decay/zombie.mdl
 models/decay/zombie01.mdl
 models/decay/zombie02.mdl
 models/decay/zombie03.mdl
