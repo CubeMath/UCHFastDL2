@@ -423,7 +423,6 @@ final class Diffy {
 	
 	private string s_message = "DIFFICULTY: 50.0 Percent (Medium) (none were connected at Map-Begin)";
 	double m_flMessageTime = 0.0;
-  bool m_flMessageTime_used = false;
 	double m_oldEngineTime = 0.0;
 	
 	array<string> chargerValuesStr;
@@ -436,7 +435,6 @@ final class Diffy {
 		m_playerNum = 0;
 		m_LastPlayerNum = 0;
 		m_flMessageTime = 0.0;
-    m_flMessageTime_used = false;
 		m_oldEngineTime = g_Engine.time;
 		m_oldMap = "";
 		
@@ -837,22 +835,22 @@ final class Diffy {
 		else if(m_fl_difficulty<0.85)
 			bStr = "(Very Hard!)";
 		else if(m_fl_difficulty<0.9)
-			bStr = "(WARNING: Extreme!)";
+			bStr = "(Extreme!)";
 		else if(m_fl_difficulty<0.95)
-			bStr = "(WARNING: Near Impossible!)";
+			bStr = "(Near Impossible!)";
 		else if(m_fl_difficulty<0.9995)
-			bStr = "(WARNING: Impossible!)";
+			bStr = "(Impossible!)";
 		else
-			bStr = "(WARNING: MAXIMUM DIFFICULTY!)";
+			bStr = "(MAXIMUM DIFFICULTY!)";
 			
 		switch(mode){
 		case 0:
 			if(m_LastPlayerNum == 0){
-				cStr = " (none were connected at Map-Begin)";
+				cStr = " (Nobody was connected during Starting point)";
 			}else if(m_LastPlayerNum == 1){
-				cStr = " (a person were connected at Map-Begin)";
+				cStr = " (A person connected during Starting point)";
 			}else{
-				cStr = " ("+m_LastPlayerNum+" people were connected at Map-Begin)";
+				cStr = " ("+m_LastPlayerNum+" people were connected during Starting point)";
 			}
 			
 			break;
@@ -1282,7 +1280,6 @@ final class Diffy {
 	
 	void enable_m_30sec_over(){
 		g_diffy.m_flMessageTime = g_Engine.time + 15.0f;
-    g_diffy.m_flMessageTime_used = true;
 		string aStr = g_diffy.getMessage()+"\n";
 		g_Game.AlertMessage( at_logged, aStr );
 		g_PlayerFuncs.ClientPrintAll( HUD_PRINTTALK, aStr );
@@ -1291,7 +1288,6 @@ final class Diffy {
 	
 	void mapStartDiffy(){
 		m_flMessageTime = 0.0;
-    g_diffy.m_flMessageTime_used = false;
 		m_LastPlayerNum = m_playerNum;
 		
 		if(m_LastPlayerNum < 0) m_LastPlayerNum = 0;
@@ -1402,21 +1398,13 @@ HookReturnCode ClientSay2( SayParameters@ pParams ) {
 	strTest = strTest || (str.Find("IMPOSSIBLE") != String::INVALID_INDEX);
 	strTest = strTest || (str.Find("INVINCIBLE") != String::INVALID_INDEX);
 	strTest = strTest || (str.Find("POWERFUL") != String::INVALID_INDEX);
-	// strTest = strTest && (g_diffy.m_flMessageTime < g_Engine.time);
+	strTest = strTest && (g_diffy.m_flMessageTime < g_Engine.time);
 	
 	if (strTest) {
-    if (g_diffy.m_flMessageTime < g_Engine.time) {
-      g_diffy.m_flMessageTime = g_Engine.time + 15.0f;
-      g_diffy.m_flMessageTime_used = true;
-      string aStr = g_diffy.getMessage()+"\n";
-      g_Game.AlertMessage( at_logged, aStr );
-      g_PlayerFuncs.ClientPrintAll( HUD_PRINTTALK, aStr );
-    }else if(g_diffy.m_flMessageTime_used){
-      g_diffy.m_flMessageTime_used = false;
-      string aStr = "DIFFICULTY: Dynamic-Difficulty Plugin V10 by CubeMath\n";
-      g_Game.AlertMessage( at_logged, aStr );
-      g_PlayerFuncs.ClientPrintAll( HUD_PRINTTALK, aStr );
-    }
+		g_diffy.m_flMessageTime = g_Engine.time + 15.0f;
+		string aStr = g_diffy.getMessage()+"\n";
+		g_Game.AlertMessage( at_logged, aStr );
+		g_PlayerFuncs.ClientPrintAll( HUD_PRINTTALK, aStr );
 	}
 	
 	return HOOK_CONTINUE;
