@@ -4466,20 +4466,6 @@
 "classname" "multisource"
 }
 {
-"origin" "232 -2180 1384"
-"angles" "0 0 0"
-"targetname" "loser_mm"
-"loser_gman_talk" ".5"
-"end_fired_title" "7"
-"end_fade_out" "4"
-"cd_track_loser" "0"
-"win_cam" "6"
-"end_stuff_mm" "8"
-"teleport_to_wincam_ms" "5.8"
-"cd_track_winner" "19"
-"classname" "multi_manager"
-}
-{
 "origin" "142 -2094 1312"
 "maxhullsize" "0 0 0"
 "minhullsize" "0 0 0"
@@ -5481,6 +5467,7 @@
 "target" "enable_teleport_to_end"
 "netname" "start_loser_mm"
 "noise" "start_loser_mm"
+"m_iszNoString" "No (map instinct_1)"
 "classname" "trigger_vote"
 }
 {
@@ -5504,5 +5491,27 @@
 "targetname" "enable_teleport_to_end"
 "triggerstate" "1"
 "classname" "trigger_relay"
+}
+{
+"origin" "232 -2180 1384"
+"angles" "0 0 0"
+"targetname" "loser_mm_old"
+"loser_gman_talk" ".5"
+"end_fired_title" "7"
+"end_fade_out" "4"
+"cd_track_loser" "0"
+"win_cam" "6"
+"end_stuff_mm" "8"
+"teleport_to_wincam_ms" "5.8"
+"cd_track_winner" "19"
+"classname" "multi_manager"
+}
+{
+"model" "*100"
+"angles" "0 0 0"
+"map" "instinct_1"
+"targetname" "loser_mm"
+"spawnflags" "2"
+"classname" "trigger_changelevel"
 }
  
