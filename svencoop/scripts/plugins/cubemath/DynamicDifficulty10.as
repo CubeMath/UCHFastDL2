@@ -377,6 +377,11 @@ final class Diffy {
 	private double m_fl_difficulty = 0.5;
 	
 	/**
+	* Current Difficulty of the map
+	*/
+	bool m_ignore_diff = true;
+	
+	/**
 	* Current MaxHealth of the map
 	*/
 	double m_fl_maxH = 100.0;
@@ -450,39 +455,41 @@ final class Diffy {
 		if(betweenTime < 0.0){
 			m_oldEngineTime = g_Engine.time;
 		}else{
-			CBasePlayer@ pPlayer;
-			
-			for( int iPlayer = 1; iPlayer <= g_Engine.maxClients; ++iPlayer ){
-				@pPlayer = g_PlayerFuncs.FindPlayerByIndex( iPlayer );
-			
-				if( pPlayer is null || !pPlayer.IsConnected() )
-					continue;
-				
-				if(pPlayer.IsAlive()){
-					
-					if(pPlayer.pev.health > 0.0){
-						pPlayer.pev.max_health = m_fl_maxH;
-						pPlayer.pev.armortype = m_fl_maxA;
-						
-						pPlayer.pev.health += m_fl_chargeH * betweenTime;
-						pPlayer.pev.armorvalue += m_fl_chargeA * betweenTime;
-					}
-					
-					if(pPlayer.pev.health > pPlayer.pev.max_health)
-						pPlayer.pev.health = pPlayer.pev.max_health;
-					
-					if(pPlayer.pev.armorvalue > pPlayer.pev.armortype)
-						pPlayer.pev.armorvalue = pPlayer.pev.armortype;
-					
-					g_PlayerDiffData_LastIsAlive[ iPlayer-1 ] = true;
-				}else{
-					if(g_PlayerDiffData_LastIsAlive[ iPlayer-1 ]){
-						if(m_fl_difficulty == 1.0) pPlayer.Killed(pPlayer.pev, GIB_ALWAYS);
-						g_PlayerDiffData_LastIsAlive[ iPlayer-1 ] = false;
-					}
-				}
+      if(!m_ignore_diff){
+        CBasePlayer@ pPlayer;
+        
+        for( int iPlayer = 1; iPlayer <= g_Engine.maxClients; ++iPlayer ){
+          @pPlayer = g_PlayerFuncs.FindPlayerByIndex( iPlayer );
+        
+          if( pPlayer is null || !pPlayer.IsConnected() )
+            continue;
+          
+          if(pPlayer.IsAlive()){
+            
+            if(pPlayer.pev.health > 0.0){
+              pPlayer.pev.max_health = m_fl_maxH;
+              pPlayer.pev.armortype = m_fl_maxA;
+              
+              pPlayer.pev.health += m_fl_chargeH * betweenTime;
+              pPlayer.pev.armorvalue += m_fl_chargeA * betweenTime;
+            }
+            
+            if(pPlayer.pev.health > pPlayer.pev.max_health)
+              pPlayer.pev.health = pPlayer.pev.max_health;
+            
+            if(pPlayer.pev.armorvalue > pPlayer.pev.armortype)
+              pPlayer.pev.armorvalue = pPlayer.pev.armortype;
+            
+            g_PlayerDiffData_LastIsAlive[ iPlayer-1 ] = true;
+          }else{
+            if(g_PlayerDiffData_LastIsAlive[ iPlayer-1 ]){
+              if(m_fl_difficulty == 1.0) pPlayer.Killed(pPlayer.pev, GIB_ALWAYS);
+              g_PlayerDiffData_LastIsAlive[ iPlayer-1 ] = false;
+            }
+          }
+        }
 			}
-			
+      
 			m_oldEngineTime += betweenTime;
 		}
 		
@@ -936,6 +943,8 @@ final class Diffy {
 	
 	void setDifficulty(double newDiff, bool ignoreChanges, int mode){
 		
+    m_ignore_diff = ignoreChanges;
+    
 		if(newDiff < 0.0) newDiff = 0.0;
 		if(newDiff > 1.0) newDiff = 1.0;
 		if(newDiff < 0.001 && newDiff > 0.0) newDiff = 0.001;
@@ -1373,9 +1382,11 @@ void MapActivate(){
 }
 
 HookReturnCode ClientPutInServer( CBasePlayer@ pPlayer ){
-	pPlayer.pev.max_health = g_diffy.m_fl_maxH;
-	pPlayer.pev.armortype = g_diffy.m_fl_maxA;
-	
+  if(!g_diffy.m_ignore_diff){
+    pPlayer.pev.max_health = g_diffy.m_fl_maxH;
+    pPlayer.pev.armortype = g_diffy.m_fl_maxA;
+	}
+  
 	g_diffy.countPeople();
 	return HOOK_CONTINUE;
 }
