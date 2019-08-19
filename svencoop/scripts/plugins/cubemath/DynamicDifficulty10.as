@@ -483,7 +483,6 @@ final class Diffy {
             g_PlayerDiffData_LastIsAlive[ iPlayer-1 ] = true;
           }else{
             if(g_PlayerDiffData_LastIsAlive[ iPlayer-1 ]){
-              if(m_fl_difficulty == 1.0) pPlayer.Killed(pPlayer.pev, GIB_ALWAYS);
               g_PlayerDiffData_LastIsAlive[ iPlayer-1 ] = false;
             }
           }
@@ -943,7 +942,7 @@ final class Diffy {
 	
 	void setDifficulty(double newDiff, bool ignoreChanges, int mode){
 		
-    m_ignore_diff = ignoreChanges;
+		m_ignore_diff = ignoreChanges;
     
 		if(newDiff < 0.0) newDiff = 0.0;
 		if(newDiff > 1.0) newDiff = 1.0;
@@ -1335,6 +1334,10 @@ final class Diffy {
 	string getMessage(){
 		return s_message;
 	}
+	
+	double getDiff() {
+		return m_fl_difficulty;
+	}
 }
 
 Diffy@ g_diffy;
@@ -1360,6 +1363,7 @@ void PluginInit() {
 	g_Hooks.RegisterHook( Hooks::Player::ClientPutInServer, @ClientPutInServer );
 	g_Hooks.RegisterHook( Hooks::Player::ClientDisconnect, @ClientDisconnect );
 	g_Hooks.RegisterHook( Hooks::Player::ClientSay, @ClientSay2 );
+	g_Hooks.RegisterHook( Hooks::Player::PlayerKilled, @PlayerKilled );
 	
 	g_PlayerDiffData_LastIsAlive.resize( g_Engine.maxClients );
 	
@@ -1382,11 +1386,11 @@ void MapActivate(){
 }
 
 HookReturnCode ClientPutInServer( CBasePlayer@ pPlayer ){
-  if(!g_diffy.m_ignore_diff){
-    pPlayer.pev.max_health = g_diffy.m_fl_maxH;
-    pPlayer.pev.armortype = g_diffy.m_fl_maxA;
+	if(!g_diffy.m_ignore_diff){
+		pPlayer.pev.max_health = g_diffy.m_fl_maxH;
+		pPlayer.pev.armortype = g_diffy.m_fl_maxA;
 	}
-  
+ 
 	g_diffy.countPeople();
 	return HOOK_CONTINUE;
 }
@@ -1421,3 +1425,12 @@ HookReturnCode ClientSay2( SayParameters@ pParams ) {
 	return HOOK_CONTINUE;
 }
 
+HookReturnCode PlayerKilled( CBasePlayer@ pPlayer, CBaseEntity@, int iGib ){
+	if (g_diffy.getDiff() == 1.0 && !((pPlayer.pev.health < -40 && iGib != GIB_NEVER) || iGib == GIB_ALWAYS)) {
+		pPlayer.GibMonster();
+		pPlayer.pev.deadflag = DEAD_DEAD;
+		pPlayer.pev.effects |= EF_NODRAW;
+	}
+
+	return HOOK_CONTINUE;
+}
