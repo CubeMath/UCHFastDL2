@@ -41,6 +41,9 @@ class weapon_hl357 : ScriptBasePlayerWeaponEntity
 	void Precache()
 	{
 		self.PrecacheCustomModels();
+
+		g_Game.PrecacheGeneric( "sprites/hl_weapons/weapon_hl357.txt" );
+
 		g_Game.PrecacheModel( "models/hlclassic/v_357.mdl" );
 		g_Game.PrecacheModel( "models/hlclassic/w_357.mdl" );
 		g_Game.PrecacheModel( "models/hlclassic/p_357.mdl" );
