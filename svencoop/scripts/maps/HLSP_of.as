@@ -1,19 +1,21 @@
 #include "point_checkpoint"
 #include "hlsp/trigger_suitcheck"
 #include "HLSPClassicMode"
-#include "cubemath/geneworm"
-// #include "cubemath/weapon_debug"
+#include "cubemath/trigger_once_mp"
+//#include "cubemath/weapon_debug"
+#include "cubemath/polling_check_players"
 #include "ofnvision"
 
 void MapInit()
 {
 	RegisterPointCheckPointEntity();
 	RegisterTriggerSuitcheckEntity();
-	RegisterGenewormCustomEntity();
-	// RegisterWeaponDebug();
+	RegisterTriggerOnceMpEntity();
+	//RegisterWeaponDebug();
 	
 	g_EngineFuncs.CVarSetFloat( "mp_hevsuit_voice", 1 );
 	
 	ClassicModeMapInit();
+  poll_check();
   g_nv.MapInit();
 }
