@@ -1343,18 +1343,18 @@ final class Diffy {
 Diffy@ g_diffy;
 array<bool> g_PlayerDiffData_LastIsAlive;
 
-// CClientCommand g_DiffCommand("diff", "Sets the Difficulty (0.0 - 100.0)", @manipulate_difficulty, ConCommandFlag::AdminOnly);
+CClientCommand g_DiffCommand("diff", "Sets the Difficulty (0.0 - 100.0)", @manipulate_difficulty, ConCommandFlag::AdminOnly);
 
-// void manipulate_difficulty(const CCommand@ pArguments){
-	// if(pArguments.ArgC() < 1) return;
+void manipulate_difficulty(const CCommand@ pArguments){
+	if(pArguments.ArgC() < 1) return;
 	
-	// string aStr = pArguments.Arg(1);
-	// if(aStr == "") return;
+	string aStr = pArguments.Arg(1);
+	if(aStr == "") return;
 	
-	// double newDiff = atod(aStr);
+	double newDiff = atod(aStr);
 	
-	// g_diffy.setDifficulty(newDiff/100.0, false, 1);
-// }
+	g_diffy.setDifficulty(newDiff/100.0, false, 1);
+}
 
 void PluginInit() {
 	g_Module.ScriptInfo.SetAuthor( "CubeMath" );
