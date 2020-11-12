@@ -381,7 +381,7 @@ final class Diffy {
 	}
 	
 	double getSkValue(int index){
-		uint iMax = diffBorders.length;
+		uint iMax = diffBorders.length();
 		
 		if(m_flAverageVoteDifficulty==1.0){
 			//g_PlayerFuncs.ClientPrintAll( HUD_PRINTTALK, ""+skillMatrix[index][7]+"\n" );
@@ -392,7 +392,7 @@ final class Diffy {
 			
 				if(diffBorders[i]==m_flAverageVoteDifficulty){
 					return skillMatrix[index][i];
-				}else if(diffBorders.length>i && diffBorders[i+1]>m_flAverageVoteDifficulty){
+				}else if(diffBorders.length()>i && diffBorders[i+1]>m_flAverageVoteDifficulty){
 					double min = diffBorders[i];
 					double max = diffBorders[i+1];
 					double difference = (m_flAverageVoteDifficulty-min)/(max-min);

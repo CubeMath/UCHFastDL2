@@ -435,13 +435,13 @@ final class Diffy {
 	}
 	
 	double getSkValue(int index){
-		uint iMax = diffBorders.length;
+		uint iMax = diffBorders.length();
 		
 		for(uint i = 0; i < iMax;i++){
 		
 			if(diffBorders[i]==m_flActualDifficulty){
 				return skillMatrix[index][i];
-			}else if(diffBorders.length>i && diffBorders[i+1]>m_flActualDifficulty){
+			}else if(diffBorders.length()>i && diffBorders[i+1]>m_flActualDifficulty){
 				double min = diffBorders[i];
 				double max = diffBorders[i+1];
 				double difference = (m_flActualDifficulty-min)/(max-min);
