@@ -3091,7 +3091,7 @@
 }
 {
 "origin" "-152 976 -592"
-"weapons" "3"
+"weapons" "5"
 "angles" "0 151 0"
 "rendercolor" "0 0 0"
 "classname" "monster_human_grunt"
@@ -4104,8 +4104,8 @@
 "material" "1"
 "health" "90"
 "spawnflags" "256"
-"classname" "func_breakable"
 "target" "activate_key_1"
+"classname" "func_breakable"
 }
 {
 "model" "*278"
@@ -4371,8 +4371,8 @@
 "origin" "-439 1411 -784"
 "m_fMoveTo" "2"
 "targetname" "bam111"
-"m_iszIdle" "idle1"
-"m_iszPlay" "idle1"
+"m_iszIdle" "d"
+"m_iszPlay" "d"
 "m_iszEntity" "g2"
 "m_flRadius" "512"
 "angles" "0 0 0"
@@ -4383,8 +4383,8 @@
 "origin" "-443 1569 -784"
 "targetname" "bam222"
 "m_fMoveTo" "2"
-"m_iszIdle" "idle1"
-"m_iszPlay" "idle1"
+"m_iszIdle" "d"
+"m_iszPlay" "d"
 "m_iszEntity" "g1"
 "m_flRadius" "512"
 "angles" "0 0 0"
@@ -4554,8 +4554,8 @@
 "origin" "-50 -1435 -384"
 "m_iszEntity" "grunty"
 "m_fMoveTo" "2"
-"m_iszIdle" "idle1"
-"m_iszPlay" "idle1"
+"m_iszIdle" "s"
+"m_iszPlay" "s"
 "targetname" "ddd"
 "m_flRadius" "512"
 "angles" "0 0 0"
@@ -4694,10 +4694,11 @@
 }
 {
 "model" "*322"
+"keep_inventory" "1"
 "map" "instinct_7"
-"classname" "trigger_changelevel"
 "targetname" "change_lvl"
 "spawnflags" "2"
+"classname" "trigger_changelevel"
 }
 {
 "origin" "-144 -390 -346"
@@ -4914,47 +4915,47 @@
 "classname" "func_wall"
 }
 {
-"origin" "-1956 -2248 -324"
+"origin" "-1956 -2248 -368"
 "angles" "0 0 0"
 "classname" "info_player_deathmatch"
 }
 {
-"origin" "-2055 -2244 -324"
+"origin" "-2055 -2244 -368"
 "angles" "0 0 0"
 "classname" "info_player_deathmatch"
 }
 {
-"origin" "-2159 -2243 -324"
+"origin" "-2159 -2243 -368"
 "angles" "0 0 0"
 "classname" "info_player_deathmatch"
 }
 {
-"origin" "-2146 -2330 -306"
+"origin" "-2146 -2330 -348"
 "angles" "0 0 0"
 "classname" "info_player_deathmatch"
 }
 {
-"origin" "-2045 -2330 -306"
+"origin" "-2045 -2330 -348"
 "angles" "0 0 0"
 "classname" "info_player_deathmatch"
 }
 {
-"origin" "-1938 -2325 -306"
+"origin" "-1938 -2325 -348"
 "angles" "0 0 0"
 "classname" "info_player_deathmatch"
 }
 {
-"origin" "-1949 -2149 -306"
+"origin" "-1949 -2149 -348"
 "angles" "0 0 0"
 "classname" "info_player_deathmatch"
 }
 {
-"origin" "-2068 -2154 -306"
+"origin" "-2068 -2154 -348"
 "angles" "0 0 0"
 "classname" "info_player_deathmatch"
 }
 {
-"origin" "-2161 -2160 -306"
+"origin" "-2161 -2160 -348"
 "angles" "0 0 0"
 "classname" "info_player_deathmatch"
 }
@@ -5181,9 +5182,9 @@
 "rendercolor" "0 0 0"
 "angles" "0 0 0"
 "spawnflags" "33"
-"classname" "squadmaker"
 "trigger_condition" "4"
-"trigger_target" "percent_lock_1_r1"
+"trigger_target" "kill_antirush_condition"
+"classname" "squadmaker"
 }
 {
 "origin" "469 1652 -739"
@@ -5200,9 +5201,9 @@
 "rendercolor" "0 0 0"
 "angles" "0 0 0"
 "spawnflags" "33"
-"classname" "squadmaker"
 "trigger_condition" "4"
-"trigger_target" "percent_lock_1_r2"
+"trigger_target" "kill_antirush_condition"
+"classname" "squadmaker"
 }
 {
 "origin" "555 1678 -719"
@@ -5219,9 +5220,9 @@
 "rendercolor" "0 0 0"
 "angles" "0 0 0"
 "spawnflags" "33"
-"classname" "squadmaker"
 "trigger_condition" "4"
-"trigger_target" "percent_lock_1_r3"
+"trigger_target" "kill_antirush_condition"
+"classname" "squadmaker"
 }
 {
 "origin" "483 1811 -739"
@@ -5238,12 +5239,12 @@
 "rendercolor" "0 0 0"
 "angles" "0 0 0"
 "spawnflags" "33"
-"classname" "squadmaker"
 "trigger_condition" "4"
-"trigger_target" "percent_lock_1_r4"
+"trigger_target" "kill_antirush_condition"
+"classname" "squadmaker"
 }
 {
-"origin" "475 1990 -740"
+"origin" "475 2016 -740"
 "renderamt" "255"
 "rendermode" "4"
 "scale" "0.25"
@@ -5252,6 +5253,14 @@
 "rendercolor" "0 0 0"
 "model" "sprites/level_change.spr"
 "classname" "env_sprite"
+}
+{
+"origin" "-356 -2111 -397"
+"classname" "point_checkpoint"
+}
+{
+"origin" "113 1517 -635"
+"classname" "point_checkpoint"
 }
 {
 "model" "*301"
@@ -6120,7 +6129,7 @@
 "classname" "func_wall"
 }
 {
-"origin" "468 2016 -666"
+"origin" "468 2016 -710"
 "targetname" "percent_lock_1_digits"
 "renderamt" "255"
 "spawnflags" "384"
@@ -6141,7 +6150,7 @@
 "classname" "item_generic"
 }
 {
-"origin" "476 2016 -666"
+"origin" "476 2016 -710"
 "targetname" "percent_lock_1_digits"
 "renderamt" "255"
 "spawnflags" "384"
@@ -6162,7 +6171,7 @@
 "classname" "item_generic"
 }
 {
-"origin" "486 2016 -666"
+"origin" "486 2016 -710"
 "targetname" "percent_lock_1_digits"
 "renderamt" "255"
 "spawnflags" "384"
@@ -6177,6 +6186,27 @@
 "sequencename" "idle"
 "sequence" "0"
 "scale" "1"
+"minhullsize" "0 0 0"
+"maxhullsize" "0 0 0"
+"delay" "0"
+"classname" "item_generic"
+}
+{
+"origin" "476 2016 -683"
+"targetname" "skull_logo1"
+"renderamt" "255"
+"spawnflags" "384"
+"angles" "0 270 0"
+"renderfx" "0"
+"rendermode" "5"
+"rendercolor" "255 255 255"
+"movetype" "5"
+"model" "models/cubemath/skull.mdl"
+"skin" "0"
+"body" "0"
+"sequencename" "idle"
+"sequence" "0"
+"scale" "0.6"
 "minhullsize" "0 0 0"
 "maxhullsize" "0 0 0"
 "delay" "0"
@@ -6229,26 +6259,16 @@
 "classname" "multisource"
 }
 {
-"targetname" "percent_lock_1_r1"
-"target" "percent_lock_1_ms"
-"triggerstate" "1"
-"classname" "trigger_relay"
+"skull_logo1" "1#2"
+"percent_lock_1_ms" "2"
+"targetname" "kill_antirush_lock"
+"classname" "multi_manager"
 }
 {
-"targetname" "percent_lock_1_r2"
-"target" "percent_lock_1_ms"
-"triggerstate" "1"
-"classname" "trigger_relay"
+"targetname" "kill_antirush_condition"
+"health" "4"
+"frags" "0"
+"target" "kill_antirush_lock"
+"classname" "game_counter"
 }
-{
-"targetname" "percent_lock_1_r3"
-"target" "percent_lock_1_ms"
-"triggerstate" "1"
-"classname" "trigger_relay"
-}
-{
-"targetname" "percent_lock_1_r4"
-"target" "percent_lock_1_ms"
-"triggerstate" "1"
-"classname" "trigger_relay"
-}
+ 

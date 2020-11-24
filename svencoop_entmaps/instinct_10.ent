@@ -1,6 +1,7 @@
 {
 "wad" "hlinstinct.wad;opfor.wad;halflife.wad;xeno.wad;liquids.wad;"
 "mapversion" "220"
+"mapversion" "220"
 "MaxRange" "4096"
 "sounds" "1"
 "classname" "worldspawn"
@@ -2004,20 +2005,53 @@
 "origin" "-3504 -3552 -3432"
 "grandmamusic" "0#0"
 "grandma" "0#0"
-"shake1" "22"
+"shake1" "4"
+"boom1" "6"
+"shake1" "9"
+"boom1" "12"
+"shake1" "12"
+"shake1" "17"
 "boom1" "18"
-"google" "22.5"
-"teleport" "26.2"
-"greenfade2" "26.2"
-"endmap1" "27.5"
+"shake1" "18"
+"shake1" "22"
+"killnpcs" "7"
+"kill_spawners" "6"
+"endmap1x" "22.5"
 "targetname" "fade"
 "classname" "multi_manager"
 }
 {
-"model" "*8"
+"origin" "-3504 -3552 -3432"
+"targetname" "kill_spawners"
+"bigmoms" "0#2"
+"grandmaboss" "0#2"
+"prick" "0#2"
+"zombos1" "0#2"
+"zombos2" "0#2"
+"bossadds" "0#2"
+"classname" "multi_manager"
+}
+{
+"origin" "-16 2528 176"
+"targetname" "killnpcs"
+"targetclass" "monster_babycrab"
+"dmg" "99999"
+"delay" "5"
+"spawnflags" "3"
+"classname" "trigger_hurt_remote"
+}
+{
+"origin" "-16 2528 176"
+"targetname" "killnpcs"
+"targetclass" "monster_gonome"
+"dmg" "99999"
+"delay" "5"
+"spawnflags" "3"
+"classname" "trigger_hurt_remote"
+}
+{
+"origin" "-16 2528 176"
 "targetname" "endmap1"
-"map" "instinct_2"
-"spawnflags" "2"
 "classname" "game_end"
 }
 {
@@ -2290,10 +2324,11 @@
 }
 {
 "origin" "840 879 -559"
+"targetname" "prick"
 "monstertype" "monster_zombie"
 "new_model" "models/instinct/maphoarder.mdl"
 "soundlist" "../uboamedley/scicotic2.txt"
-"displayname" "NO!! I won't share my ripented maps! They're exclusive to MY empty server!"
+"displayname" "NO!! I won't share my converted maps! They're exclusive to MY empty server!"
 "trigger_condition" "4"
 "trigger_target" "spawnrelay"
 "health" "500"
@@ -2663,6 +2698,7 @@
 }
 {
 "origin" "-213 1873 -325"
+"targetname" "bossadds"
 "monstertype" "monster_gonome"
 "maxhullsize" "0 0 0"
 "minhullsize" "0 0 0"
@@ -2714,6 +2750,7 @@
 }
 {
 "origin" "158 1640 -273"
+"targetname" "bossadds"
 "monstertype" "monster_headcrab"
 "maxhullsize" "0 0 0"
 "minhullsize" "0 0 0"
@@ -2731,6 +2768,7 @@
 }
 {
 "origin" "-1497 2361 -447"
+"targetname" "bossadds"
 "monstertype" "monster_gonome"
 "maxhullsize" "0 0 0"
 "minhullsize" "0 0 0"
@@ -2746,3 +2784,165 @@
 "spawnflags" "33"
 "classname" "squadmaker"
 }
+{
+"origin" "1663 667 -491"
+"classname" "point_checkpoint"
+}
+{
+"origin" "-3504 -3552 -3432"
+"google" "0.5"
+"teleport" "0.2"
+"greenfade2" "0.2"
+"endmap1" "0"
+"targetname" "endmap2"
+"classname" "multi_manager"
+}
+{
+"origin" "-3504 -3552 -3432"
+"laser1" "0#1"
+"laser2" "2#1"
+"funnel1" "3"
+"endportal1" "6"
+"activate_portal_trigger" "6"
+"targetname" "endmap1x"
+"classname" "multi_manager"
+}
+{
+"origin" "111 1516 -445"
+"targetname" "lasertarget"
+"classname" "info_target"
+}
+{
+"origin" "112 1659 -491"
+"targetname" "laser1start"
+"classname" "info_target"
+}
+{
+"origin" "91 1338 -485"
+"targetname" "laser2start"
+"classname" "info_target"
+}
+{
+"origin" "91 1338 -485"
+"LightningStart" "laser1start"
+"LightningEnd" "lasertarget"
+"renderamt" "255"
+"rendercolor" "0 240 0"
+"life" "0"
+"BoltWidth" "2"
+"NoiseAmplitude" "50"
+"texture" "sprites/disp_ring.spr"
+"TextureScroll" "1"
+"framerate" "50"
+"framestart" "0"
+"StrikeTime" "0.2"
+"damage" "0"
+"targetname" "laser1"
+"spawnflags" "50"
+"classname" "env_beam"
+}
+{
+"origin" "112 1659 -491"
+"targetname" "laser1"
+"message" "debris/beamstart5.wav"
+"pitchstart" "100"
+"pitch" "100"
+"health" "10"
+"playmode" "1"
+"spawnflags" "24"
+"classname" "ambient_generic"
+}
+{
+"origin" "91 1338 -485"
+"LightningStart" "laser2start"
+"LightningEnd" "lasertarget"
+"renderamt" "255"
+"rendercolor" "0 240 0"
+"life" "0"
+"BoltWidth" "2"
+"NoiseAmplitude" "50"
+"texture" "sprites/disp_ring.spr"
+"TextureScroll" "1"
+"framerate" "50"
+"framestart" "0"
+"StrikeTime" "0.2"
+"damage" "0"
+"targetname" "laser2"
+"spawnflags" "50"
+"classname" "env_beam"
+}
+{
+"origin" "91 1338 -485"
+"targetname" "laser2"
+"message" "debris/beamstart6.wav"
+"pitchstart" "100"
+"pitch" "100"
+"health" "10"
+"playmode" "1"
+"spawnflags" "24"
+"classname" "ambient_generic"
+}
+{
+"origin" "111 1516 -445"
+"targetname" "funnel1"
+"classname" "env_funnel"
+}
+{
+"origin" "111 1516 -445"
+"targetname" "endportal1"
+"angles" "0 0 0"
+"model" "sprites/enter1.spr"
+"framerate" "10.0"
+"rendercolor" "0 0 0"
+"renderamt" "160"
+"rendermode" "5"
+"classname" "env_sprite"
+}
+{
+"origin" "111 1516 -445"
+"targetname" "endportal1"
+"message" "debris/beamstart8.wav"
+"pitchstart" "100"
+"pitch" "100"
+"health" "10"
+"playmode" "1"
+"spawnflags" "24"
+"classname" "ambient_generic"
+}
+{
+"origin" "111 1516 -445"
+"targetname" "endportal1"
+"message" "ambience/alien_beacon.wav"
+"pitchstart" "100"
+"pitch" "100"
+"health" "10"
+"playmode" "2"
+"spawnflags" "20"
+"classname" "ambient_generic"
+}
+{
+"origin" "91 1338 -485"
+"targetname" "activate_portal_trigger"
+"target" "portal_trigger"
+"m_iszNewTarget" "portal_relay"
+"classname" "trigger_changetarget"
+}
+{
+"model" "*127"
+"origin" "1475.330322 650.513977 190"
+"rendermode" "2"
+"renderamt" "0"
+"rendercolor" "0 0 0"
+"targetname" "portal_trigger"
+"target" "balls"
+"classname" "trigger_multiple"
+}
+{
+"origin" "91 1338 -485"
+"targetname" "portal_relay"
+"triggerstate" "1"
+"target" "endmap2"
+"delay" "0"
+"classname" "trigger_relay"
+}
+ 

@@ -53,39 +53,6 @@ final class PlayerDiffData {
 	}
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	
 	PlayerDiffData( double pDiffVote ){
 		m_flDiffVote = pDiffVote;
@@ -279,17 +246,6 @@ final class Diffy {
 			{ 1.0, 1.0, 1.0, 1.0, 1.25, 2.0, 5.0, 6.0 }, //faster speed (psychobot) (hl_c13_a3 platforms)
 			{ 0.5, 0.75, 0.9, 1.0, 1.25, 2.0, 5.0, 6.0 }, //mixed speed (hl_c13_a3 platforms)
 			{ 0.01, 0.1, 0.5, 1.0, 1.0, 1.0, 0.0, 0.0 } //trigger_hurt ignore hardcore
-
-
-
-
-
-
-
-
-
-
-
 
 
 	};
@@ -505,8 +461,6 @@ final class Diffy {
 	}
 
 
-
-
 	
 	void ResetData(){
 		m_flMessageTime = g_Engine.time;
@@ -517,98 +471,15 @@ final class Diffy {
 	}
 
 
-
-
 	
 	string getOldMessage(){
 		return s_oldmessage;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 	}
 	
 	string getOldVoteMessage(){
 		return s_oldvotemessage;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 	}
@@ -683,18 +554,8 @@ final class Diffy {
 			for( int i = 0; i < iMax; ++i ){
 
 
-
 			
 				pFile.Write( "\""+sk_names[i]+"\" \""+getSkValue(i)+"\"\n" );
-
-
-
-
-
-
-
-
-
 
 
 				
@@ -717,7 +578,6 @@ final class Diffy {
 		
 
 
-
 			
 			g_EntityFuncs.DispatchKeyValue( pEntity.edict(), "m_iszCVarToChange", "skill" );
 
@@ -728,14 +588,6 @@ final class Diffy {
 				g_EntityFuncs.DispatchKeyValue( pEntity.edict(), "message", 3 );
 			}else{
 				g_EntityFuncs.DispatchKeyValue( pEntity.edict(), "message", 2 );
-
-
-
-
-
-
-
-
 
 
 			}
@@ -798,9 +650,6 @@ final class Diffy {
 		blackmesaMap = blackmesaMap || mapname == "ba_teleport2";
 
 
-
-
-
 		
 		if(blackmesaMap) {
 			CBaseEntity@ pEntity2 = g_EntityFuncs.CreateEntity( "trigger_setcvar" );
@@ -808,18 +657,8 @@ final class Diffy {
 			if( pEntity2 !is null ) {
 
 
-
 			
 				g_EntityFuncs.DispatchKeyValue( pEntity2.edict(), "m_iszCVarToChange", "sv_gravity" );
-
-
-
-
-
-
-
-
-
 
 
 				
@@ -852,21 +691,10 @@ final class Diffy {
 			@pPlayer = g_PlayerFuncs.FindPlayerByIndex( iPlayer );
 
 
-
-
-
 			
 			if( pPlayer is null || !pPlayer.IsConnected() ){
 				PlayerDiffData@ pData = g_PlayerDiffData[ iPlayer - 1 ];
 				pData.m_flDiffVote = -1.0;
-
-
-
-
-
-
-
-
 
 
 			}
@@ -899,171 +727,10 @@ final class Diffy {
 			m_flMapDifficulty = m_flAverageVoteDifficulty;
 
 
-
 			
 			if(!m_bHardcoreCheckRunning && m_flMapDifficulty==1.0){
 				m_bHardcoreCheckRunning = true;
 				g_Scheduler.SetTimeout( @this, "HardcoreCheck", 0.1 );
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 			}
@@ -1074,9 +741,6 @@ final class Diffy {
 	}
 	
 	void generateMessage(){
-
-
-
 
 
 		int difficultInt = int(m_flAverageVoteDifficulty*1000.0+0.5);
@@ -1107,36 +771,6 @@ final class Diffy {
 			bStr = "(WARNING: Impossible!)";
 		else
 			bStr = "(WARNING: MAXIMUM DIFFICULTY!)";
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 		
@@ -1175,147 +809,10 @@ final class Diffy {
 		s_votemessage = aStr+bStr;
 
 
-
-
-
-
-
-
-
-
-
 	}
 	
 	void changeEntities(){
 		string m_sMap = g_Engine.mapname;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 		CBaseEntity@ pWorld = g_EntityFuncs.Instance( 0 );
@@ -1327,27 +824,9 @@ final class Diffy {
 			if( pEntity !is null ) {
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 				
 				string pClassname = pEntity.GetClassname();
 				int multiplyMethod = 0;
-
-
-
-
-
 
 
 				
@@ -1368,16 +847,9 @@ final class Diffy {
 				canHurt = canHurt || (pClassname == "momentary_door");
 
 
-
-
-
 				
 				bool hurtExeptions = false;
 				bool hurtAlwaysIn = false;
-
-
-
-
 
 
 				
@@ -1403,27 +875,6 @@ final class Diffy {
 						multiplyMethod = 2;
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 					}
 				}
 
@@ -1437,9 +888,6 @@ final class Diffy {
 					}
 
 
-
-
-
 				}
 
 
@@ -1447,9 +895,6 @@ final class Diffy {
 					if(pEntity.pev.modelindex == 19 || pEntity.pev.modelindex == 11){
 						multiplyMethod = 2;
 					}
-
-
-
 
 
 				}
@@ -1463,15 +908,12 @@ final class Diffy {
 					if( hurtAlwaysIn || (pEntity.pev.dmg > 0.5 && pEntity.pev.dmg < 150.0 && !hurtExeptions) ){
 
 
-
 						g_EntityFuncs.DispatchKeyValue( pEntity.edict(), "dmg", (pEntity.pev.dmg*getEntchangeValue(multiplyMethod)) );
 					}
 					if( pEntity.pev.dmg < 0.0 && m_flAverageVoteDifficulty == 1.0 ){
 						g_EntityFuncs.DispatchKeyValue( pEntity.edict(), "dmg", 0.0 );
 					}
 				}
-
-
 
 
 				
@@ -1485,7 +927,6 @@ final class Diffy {
 						g_EntityFuncs.DispatchKeyValue( pEntity.edict(), "crazymanager2", (5.0/getEntchangeValue(3)-0.75*getEntchangeValue(12)) );
 					}
 					if(pEntity.GetTargetname() == "crazymanager2"){
-
 
 
 						g_EntityFuncs.DispatchKeyValue( pEntity.edict(), "crazymanager1", (5.0/getEntchangeValue(3)-0.75*getEntchangeValue(12)) );
@@ -1534,7 +975,6 @@ final class Diffy {
 						}
 
 
-
 						g_EntityFuncs.DispatchKeyValue( pEntity.edict(), "maxspeed", (pEntity.pev.maxspeed*getEntchangeValue(multiplyMethod)) );
 						g_EntityFuncs.DispatchKeyValue( pEntity.edict(), "speed", (pEntity.pev.speed*getEntchangeValue(multiplyMethod)) );
 					}
@@ -1573,14 +1013,6 @@ final class Diffy {
 				}
 
 
-
-
-
-
-
-
-
-
 				
 				if(m_sMap == "hl_c14"){
 					string s_Targetname = pEntity.GetTargetname();
@@ -1613,36 +1045,9 @@ final class Diffy {
 						pEntity.Use( pWorld, pWorld, USE_ON, 0 );
 
 
-
-
-
-
-
-
-
 					}
 
 				}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 				
@@ -1664,9 +1069,6 @@ final class Diffy {
 							pEntity.Use( pWorld, pWorld, USE_ON, 0 );
 						}
 					}
-
-
-
 
 
 				}
@@ -1737,27 +1139,9 @@ final class Diffy {
 						g_EntityFuncs.DispatchKeyValue( pEntity.edict(), "firerate", (1.0*getEntchangeValue(7)) );
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 					}
 				}
 			}
-
-
-
 
 
 		}
@@ -1779,8 +1163,6 @@ final class Diffy {
 		array<double> bufferDiff(g_Engine.maxClients);
 
 
-
-
 		
 		for( int iPlayer = 1; iPlayer <= g_Engine.maxClients; ++iPlayer ){
 			@pPlayer = g_PlayerFuncs.FindPlayerByIndex( iPlayer );
@@ -1790,11 +1172,6 @@ final class Diffy {
 				++playersTotal;
 			
 			PlayerDiffData@ pData = g_PlayerDiffData[ iPlayer - 1 ];
-
-
-
-
-
 
 
 			
@@ -1844,15 +1221,6 @@ final class Diffy {
 		int voters = 0;
 		double diffiSum = 0.0;
 		CBasePlayer@ pPlayer = null;
-
-
-
-
-
-
-
-
-
 
 
 		
@@ -1916,7 +1284,6 @@ final class Diffy {
 				aStr = "DIFFICULTY: \""+pPlayer.pev.netname+"\": none\n";
 
 
-
 			}else{
 				string bStr = ""+(pData.m_flDiffVote*100.0)+" percent.\n";
 				
@@ -1934,11 +1301,6 @@ final class Diffy {
 		g_PlayerFuncs.ClientPrint( m_caller, HUD_PRINTCONSOLE, "DIFFICULTY: - - - - - - - - - - - - - - - - -\n" );
 		g_PlayerFuncs.ClientPrint( m_caller, HUD_PRINTCONSOLE, "DIFFICULTY: Median: "+aStr );
 		g_PlayerFuncs.ClientPrint( m_caller, HUD_PRINTCONSOLE, getOldMessage()+"\n" );
-
-
-
-
-
 
 
 	}
@@ -1979,27 +1341,11 @@ final class Diffy {
 		}
 
 
-
-
-
-
 	}
 }
 
 Diffy@ g_diffy;
 array<PlayerDiffData@> g_PlayerDiffData;
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 void PluginInit() {
@@ -2021,7 +1367,6 @@ void PluginInit() {
 	
 	Diffy dif();
 	@g_diffy = @dif;
-
 
 
 }
@@ -2058,7 +1403,6 @@ HookReturnCode ClientPutInServer( CBasePlayer@ pPlayer ){
 	
 	if(!g_diffy.getMapinit()){
 		g_diffy.playerCheck();
-
 
 
 	}
@@ -2201,7 +1545,6 @@ void ChatCheck2( SayParameters@ m_pArgs ) {
 			string aStr = ""+(difficultInt/10)+"."+(difficultInt%10)+" percent";
 
 
-
 			string bStr = "DIFFICULTY: \"" + pPlayer.pev.netname +
 						"\" doesn't care about a difficulty (Median next map would be "+aStr+")\n";
 			
@@ -2220,9 +1563,6 @@ void ChatCheck2( SayParameters@ m_pArgs ) {
 	if(str == "DIFF STATUS2"){
 		m_pArgs.ShouldHide = true;
 		g_diffy.debugPrintStatus(m_pArgs.GetPlayer());
-
-
-
 
 
 	}

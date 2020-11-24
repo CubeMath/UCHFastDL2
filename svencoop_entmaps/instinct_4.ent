@@ -2,6 +2,7 @@
 "wad" "decals.wad;halflife.wad;hlinstinct.wad;opfor.wad;xeno.wad;liquids.wad;"
 "mapversion" "220"
 "WaveHeight" "0.0"
+"mapversion" "220"
 "MaxRange" "4096"
 "sounds" "1"
 "classname" "worldspawn"
@@ -88,10 +89,31 @@
 }
 {
 "model" "*16"
+"keep_inventory" "1"
 "targetname" "zzz"
 "map" "instinct_5"
 "spawnflags" "2"
 "classname" "trigger_changelevel"
+}
+{
+"model" "*17"
+"targetname" "gaben0"
+"classname" "trigger_once"
+}
+{
+"model" "*18"
+"targetname" "gaben1"
+"classname" "trigger_once"
+}
+{
+"model" "*19"
+"targetname" "gaben2"
+"classname" "trigger_once"
+}
+{
+"model" "*20"
+"targetname" "gaben3"
+"classname" "trigger_once"
 }
 {
 "model" "*21"
@@ -1804,25 +1826,27 @@
 "model" "*338"
 "netname" "mm_1"
 "targetname" "elev_door1"
+"dmg" "500"
 "wait" "-1"
 "stopsnd" "4"
 "movesnd" "2"
 "speed" "80"
 "angles" "0 270 0"
 "rendercolor" "0 0 0"
-"spawnflags" "32"
+"spawnflags" "544"
 "classname" "func_door"
 }
 {
 "model" "*339"
 "targetname" "elev_door1"
+"dmg" "500"
 "wait" "-1"
 "stopsnd" "4"
 "movesnd" "2"
 "speed" "80"
 "angles" "0 90 0"
 "rendercolor" "0 0 0"
-"spawnflags" "32"
+"spawnflags" "544"
 "classname" "func_door"
 }
 {
@@ -1907,6 +1931,7 @@
 {
 "origin" "-912 688 -640"
 "targetname" "elev_doors"
+"killtarget" "padlock_icon1"
 "target" "buttonfix"
 "spawnflags" "1"
 "classname" "trigger_relay"
@@ -1919,6 +1944,16 @@
 "classname" "trigger_relay"
 }
 {
+"origin" "1736 1960 -45"
+"angles" "0 180 0"
+"targetname" "padlock_icon1"
+"scale" "0.6"
+"movetype" "5"
+"model" "models/cubemath/padlock.mdl"
+"topcolor" "170"
+"classname" "item_generic"
+}
+{
 "model" "*347"
 "target" "elev_doors"
 "locked_sound" "11"
@@ -1928,7 +1963,8 @@
 "angles" "0 0 0"
 "rendercolor" "0 0 0"
 "spawnflags" "33"
-"item_name_required" "ekeycard"
+"item_name_required" "key4"
+"pass_destroy_item_name" "key4"
 "target_on_fail" "doortext1"
 "targetname" "lockedele"
 "classname" "func_button"
@@ -1941,57 +1977,133 @@
 }
 {
 "origin" "3584 3408 3440"
-"message" "The elevator needs a keycard."
+"message" "This elevator needs a keycard."
 "targetname" "doortext1"
 "spawnflags" "2"
 "fxtime" "0.05"
 "channel" "1"
-"holdtime" "2"
-"fadeout" "3"
+"holdtime" "3"
+"fadeout" "1"
 "fadein" "0.05"
 "effect" "2"
-"color" "255 255 255"
-"color2" "105 105 200"
-"y" "0.7"
-"x" "-1"
-"classname" "game_text"
-}
-{
-"origin" "3584 3408 3440"
-"message" "Keycard acquired."
-"targetname" "doortext2"
-"spawnflags" "2"
-"fxtime" "0.02"
-"channel" "1"
-"holdtime" "2"
-"fadeout" "2"
-"fadein" "0.02"
-"effect" "2"
-"color" "255 255 255"
-"color2" "105 105 200"
+"color" "255 0 0 125"
+"color2" "0 0 0"
 "y" "0.7"
 "x" "-1"
 "classname" "game_text"
 }
 {
 "origin" "-107 1074 304"
-"item_name" "ekeycard"
-"display_name" "Elevator Keycard"
-"description" "Seems to be a keycard for accessing all elevators."
-"target_on_collect" "doortext2"
-"weight" "1"
+"target_on_use" "key4_used_r"
+"target_on_return" "key4_returned_msg"
+"target_on_drop" "key4_dropped_msg"
+"target_on_collect" "key4_collect_msg"
 "holder_keep_on_death" "0"
 "holder_can_drop" "1"
-"return_timelimit" "10"
-"carried_sequence" "1"
-"carried_sequencename" "idle"
-"carried_hidden" "1"
-"targetname" "keycard1"
-"model" "models/w_security.mdl"
+"return_timelimit" "15"
+"sequence" "0"
+"sequencename" "idle"
+"carried_sequence" "2"
+"carried_sequencename" "carried"
+"weight" "1.0"
+"description" "Seems to be a keycard for accessing all the sector's elevators."
+"display_name" "Elevator Keycard"
+"item_name" "key4"
+"targetname" "key4_key4"
 "maxhullsize" "0 0 0"
 "minhullsize" "0 0 0"
-"spawnflags" "768"
+"scale" "1"
+"skin" "0"
+"body" "0"
+"rendercolor" "0 0 0"
+"angles" "0 225 0"
+"model" "models/scmod/item_security.mdl"
+"item_icon" "scmod/item_keycard.spr"
 "classname" "item_inventory"
+}
+{
+"origin" "256 -208 -96"
+"message" "Elevator keycard has been collected."
+"targetname" "key4_collect_msg"
+"channel" "4"
+"fxtime" "0.25"
+"holdtime" "2"
+"fadeout" "0.5"
+"fadein" "0.5"
+"color2" "0 0 160"
+"color" "128 128 255"
+"y" "0.7"
+"x" "-1"
+"spawnflags" "1"
+"classname" "game_text"
+}
+{
+"origin" "256 -208 -80"
+"message" "Elevator keycard has been dropped."
+"targetname" "key4_dropped_msg"
+"channel" "4"
+"fxtime" "0.25"
+"holdtime" "2"
+"fadeout" "0.5"
+"fadein" "0.5"
+"color2" "160 80 0"
+"color" "255 192 128"
+"y" "0.7"
+"x" "-1"
+"spawnflags" "1"
+"classname" "game_text"
+}
+{
+"origin" "256 -208 -64"
+"message" "Elevator keycard has returned."
+"targetname" "key4_returned_msg"
+"channel" "4"
+"fxtime" "0.25"
+"holdtime" "2"
+"fadeout" "0.5"
+"fadein" "0.5"
+"color2" "160 160 0"
+"color" "255 255 128"
+"y" "0.7"
+"x" "-1"
+"spawnflags" "1"
+"classname" "game_text"
+}
+{
+"origin" "887 -1189 -487"
+"targetname" "key4_used_r"
+"target" "item4kill"
+"spawnflags" "1"
+"triggerstate" "2"
+"classname" "trigger_relay"
+}
+{
+"origin" "728 -376 -524"
+"key4_key4" "0#2"
+"key4_used" "3#2"
+"key4_used" "0.1"
+"doortext1" "0#2"
+"key4_returned_msg" "0#2"
+"key4_dropped_msg" "0#2"
+"key4_collect_msg" "0#2"
+"targetname" "item4kill"
+"classname" "multi_manager"
+}
+{
+"origin" "256 -208 -80"
+"message" "Elevator keycard was used."
+"targetname" "key4_used"
+"channel" "4"
+"fxtime" "0.25"
+"holdtime" "2"
+"fadeout" "0.5"
+"fadein" "0.5"
+"color2" "160 80 0"
+"color" "255 192 128"
+"y" "0.7"
+"x" "-1"
+"spawnflags" "1"
+"classname" "game_text"
 }
 {
 "origin" "-108 1077 306"
@@ -3972,27 +4084,27 @@
 "classname" "info_target"
 }
 {
-"origin" "2488 293 -172"
+"origin" "2488 293 -212"
 "angles" "0 90 0"
 "classname" "info_player_deathmatch"
 }
 {
-"origin" "2289 153 -172"
+"origin" "2289 153 -212"
 "angles" "0 90 0"
 "classname" "info_player_deathmatch"
 }
 {
-"origin" "2380 55 -172"
+"origin" "2380 55 -212"
 "angles" "0 90 0"
 "classname" "info_player_deathmatch"
 }
 {
-"origin" "2465 391 -172"
+"origin" "2465 391 -212"
 "angles" "0 90 0"
 "classname" "info_player_deathmatch"
 }
 {
-"origin" "2201 178 -172"
+"origin" "2201 178 -212"
 "angles" "0 90 0"
 "classname" "info_player_deathmatch"
 }
@@ -4938,11 +5050,12 @@
 }
 {
 "origin" "1116 433 -248"
-"health" "500"
+"health" "-20"
 "skill" "1"
 "angles" "0 0 0"
 "rendercolor" "0 0 0"
 "spawnflags" "32"
+"health" "500"
 "classname" "monster_sentry"
 }
 {
@@ -4996,6 +5109,18 @@
 "classname" "monster_human_grunt"
 }
 {
+"origin" "1692 300 -248"
+"angles" "0 259 0"
+"rendercolor" "0 0 0"
+"classname" "monster_houndeye"
+}
+{
+"origin" "1848 256 -248"
+"angles" "0 348 0"
+"rendercolor" "0 0 0"
+"classname" "monster_houndeye"
+}
+{
 "origin" "680 474 -184"
 "body" "2"
 "pose" "1"
@@ -5009,6 +5134,12 @@
 "classname" "monster_hgrunt_dead"
 }
 {
+"origin" "2520 448 -152"
+"angles" "0 229 0"
+"rendercolor" "0 0 0"
+"classname" "monster_headcrab"
+}
+{
 "origin" "790 333 -184"
 "angles" "0 262 0"
 "rendercolor" "0 0 0"
@@ -5018,6 +5149,12 @@
 {
 "origin" "422 -759 -56"
 "angles" "0 252 0"
+"rendercolor" "0 0 0"
+"classname" "monster_headcrab"
+}
+{
+"origin" "2084 -128 -248"
+"angles" "0 93 0"
 "rendercolor" "0 0 0"
 "classname" "monster_headcrab"
 }
@@ -5053,6 +5190,12 @@
 "classname" "monster_headcrab"
 }
 {
+"origin" "2375 487 -248"
+"angles" "0 270 0"
+"rendercolor" "0 0 0"
+"classname" "monster_alien_slave"
+}
+{
 "origin" "-52 425 -184"
 "angles" "0 0 0"
 "rendercolor" "0 0 0"
@@ -5076,6 +5219,12 @@
 "angles" "0 333 0"
 "rendercolor" "0 0 0"
 "spawnflags" "4"
+"classname" "monster_alien_slave"
+}
+{
+"origin" "2112 12 -248"
+"angles" "0 70 0"
+"rendercolor" "0 0 0"
 "classname" "monster_alien_slave"
 }
 {
@@ -5106,12 +5255,23 @@
 "classname" "monster_alien_slave"
 }
 {
+"origin" "1856 348 -248"
+"angles" "0 258 0"
+"rendercolor" "0 0 0"
+"classname" "monster_alien_slave"
+}
+{
 "origin" "496 388 186"
 "TriggerCondition" "4"
 "TriggerTarget" "barbie"
 "angles" "0 315 0"
 "rendercolor" "0 0 0"
 "classname" "monster_alien_controller"
+}
+{
+"origin" "256 845 271"
+"angles" "0 -60 0"
+"classname" "monster_stukabat"
 }
 {
 "origin" "2344 288 -1000"
@@ -5205,6 +5365,14 @@
 "target" "argh"
 "triggerstate" "2"
 "classname" "trigger_auto"
+}
+{
+"origin" "1676 -176 -130"
+"health" "100"
+"weapons" "10"
+"rendercolor" "0 0 0"
+"angles" "0 91 0"
+"classname" "monster_human_grunt"
 }
 {
 "origin" "284 -412 -108"
@@ -5529,7 +5697,7 @@
 "origin" "1596 -437 -248"
 "rendercolor" "0 0 0"
 "angles" "0 0 0"
-"classname" "monster_zombie"
+"classname" "monster_zombie_barney"
 }
 {
 "origin" "1744 -428 -248"
@@ -5734,6 +5902,14 @@
 "rendercolor" "0 0 0"
 "model" "sprites/level_change.spr"
 "classname" "env_sprite"
+}
+{
+"origin" "1245 -142 -147"
+"classname" "point_checkpoint"
+}
+{
+"origin" "-148 1061 276"
+"classname" "point_checkpoint"
 }
 {
 "model" "*238"
@@ -6587,3 +6763,4 @@
 "model" "models/tree.mdl"
 "classname" "item_generic"
 }
+ 

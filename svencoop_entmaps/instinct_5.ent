@@ -2,6 +2,7 @@
 "wad" "hlinstinct.wad;opfor.wad;halflife.wad;xeno.wad;liquids.wad;"
 "mapversion" "220"
 "WaveHeight" "0.0"
+"mapversion" "220"
 "MaxRange" "4096"
 "sounds" "1"
 "classname" "worldspawn"
@@ -1085,8 +1086,20 @@
 "classname" "func_wall"
 }
 {
-"origin" "-2930 -2421 -448"
+"origin" "-2925 -2421 -448"
 "angles" "0 12 0"
+"rendercolor" "0 0 0"
+"classname" "monster_headcrab"
+}
+{
+"origin" "-2672 -2837 -448"
+"angles" "0 91 0"
+"rendercolor" "0 0 0"
+"classname" "monster_headcrab"
+}
+{
+"origin" "-2684 -2544 -448"
+"angles" "0 280 0"
 "rendercolor" "0 0 0"
 "classname" "monster_headcrab"
 }
@@ -1160,6 +1173,11 @@
 "rendercolor" "0 0 0"
 "spawnflags" "32"
 "classname" "func_door"
+}
+{
+"model" "*106"
+"targetname" "gaben0"
+"classname" "trigger_once"
 }
 {
 "origin" "-2316 -2604 -372"
@@ -1399,11 +1417,6 @@
 "classname" "monstermaker"
 }
 {
-"model" "*106"
-"targetname" "save"
-"classname" "trigger_autosave"
-}
-{
 "origin" "-3045 -2822 -448"
 "classname" "info_node"
 }
@@ -1458,6 +1471,36 @@
 {
 "origin" "-2209 -2603 -448"
 "classname" "info_node"
+}
+{
+"origin" "-2833 -2640 -448"
+"angles" "0 354 0"
+"rendercolor" "0 0 0"
+"classname" "monster_headcrab"
+}
+{
+"origin" "-2895 -2811 -448"
+"angles" "0 12 0"
+"rendercolor" "0 0 0"
+"classname" "monster_babycrab"
+}
+{
+"origin" "-2747 -2704 -448"
+"angles" "0 358 0"
+"rendercolor" "0 0 0"
+"classname" "monster_headcrab"
+}
+{
+"origin" "-2724 -2632 -448"
+"m_flRadius" "512"
+"angles" "0 346 0"
+"classname" "aiscripted_sequence"
+}
+{
+"origin" "-2708 -2772 -448"
+"angles" "0 16 0"
+"rendercolor" "0 0 0"
+"classname" "monster_headcrab"
 }
 {
 "origin" "-3081 -2948 -448"
@@ -1761,7 +1804,6 @@
 }
 {
 "origin" "-2452 -2712 -432"
-"save" ".5"
 "boogle" "6"
 "elevsound1b" "6"
 "elev_door1" "8"
@@ -1780,30 +1822,31 @@
 }
 {
 "model" "*127"
-"classname" "func_wall"
+"targetname" "gaben1"
+"classname" "trigger_once"
 }
 {
-"origin" "-2448 -2666 -361"
+"origin" "-2448 -2666 -412"
 "angles" "0 180 0"
 "classname" "info_player_deathmatch"
 }
 {
-"origin" "-2452 -2755 -361"
+"origin" "-2452 -2755 -412"
 "angles" "0 180 0"
 "classname" "info_player_deathmatch"
 }
 {
-"origin" "-2539 -2754 -361"
+"origin" "-2539 -2754 -412"
 "angles" "0 180 0"
 "classname" "info_player_deathmatch"
 }
 {
-"origin" "-2540 -2664 -361"
+"origin" "-2540 -2664 -412"
 "angles" "0 180 0"
 "classname" "info_player_deathmatch"
 }
 {
-"origin" "-2495 -2708 -361"
+"origin" "-2495 -2708 -412"
 "angles" "0 180 0"
 "classname" "info_player_deathmatch"
 }
@@ -3452,7 +3495,8 @@
 }
 {
 "model" "*199"
-"classname" "func_wall"
+"targetname" "gaben2"
+"classname" "trigger_once"
 }
 {
 "origin" "-1960 -1768 -896"
@@ -4241,8 +4285,8 @@
 "classname" "path_track"
 }
 {
-"origin" "-1426 -1759 -831"
-"monstertype" "monster_hwgrunt"
+"origin" "-2823 -2377 -383"
+"monstertype" "monster_gonome"
 "maxhullsize" "0 0 0"
 "minhullsize" "0 0 0"
 "weapons" "1"
@@ -4250,14 +4294,12 @@
 "notsolid" "-1"
 "new_body" "-1"
 "m_imaxlivechildren" "1"
-"delay" "0"
+"delay" "10"
 "monstercount" "1"
 "rendercolor" "0 0 0"
 "angles" "0 0 0"
 "spawnflags" "33"
 "classname" "squadmaker"
-"health" "2000"
-"displayname" "Sergeant Innerman"
 }
 {
 "origin" "-824 -2565 -383"
@@ -4346,12 +4388,15 @@
 }
 {
 "origin" "-1426 -1759 -831"
+"trigger_target" "keychange"
+"trigger_condition" "4"
+"netname" "theboss"
 "monstertype" "monster_hwgrunt"
 "maxhullsize" "0 0 0"
 "minhullsize" "0 0 0"
 "health" "2000"
 "displayname" "Sgt. Innerman"
-"weapons" "1"
+"weapons" "3"
 "gag" "-1"
 "notsolid" "-1"
 "new_body" "-1"
@@ -4364,6 +4409,71 @@
 "classname" "squadmaker"
 }
 {
+"origin" "-1426 -1759 -831"
+"delay" "5"
+"target" "origin_bruteforce"
+"triggerstate" "1"
+"spawnflags" "1"
+"classname" "trigger_auto"
+}
+{
+"origin" "-1426 -1759 -831"
+"targetname" "keychange_info"
+"classname" "info_target"
+}
+{
+"origin" "-1426 -1759 -831"
+"targetname" "origin_bruteforce"
+"target" "keychange_info"
+"copypointer" "theboss"
+"offset" "0 0 1"
+"spawnflags" "1"
+"classname" "trigger_setorigin"
+}
+{
+"origin" "-1426 -1759 -831"
+"delay" "0"
+"targetname" "keychange"
+"killtarget" "origin_bruteforce"
+"triggerstate" "2"
+"spawnflags" "1"
+"classname" "trigger_relay"
+}
+{
+"origin" "-1426 -1759 -831"
+"delay" "0.5"
+"targetname" "keychange"
+"target" "keychanger"
+"triggerstate" "2"
+"spawnflags" "1"
+"classname" "trigger_relay"
+}
+{
+"origin" "-1426 -1759 -831"
+"targetname" "keychanger"
+"target" "key4_key4"
+"copypointer" "keychange_info"
+"offset" "0 0 1"
+"spawnflags" "4"
+"classname" "trigger_setorigin"
+}
+{
+"origin" "-1426 -1759 -831"
+"message" "The enemy sarge has dropped something..."
+"targetname" "keychange"
+"channel" "2"
+"fxtime" "0.25"
+"holdtime" "3"
+"fadeout" "0.5"
+"fadein" "0.5"
+"color2" "0 0 160"
+"color" "128 128 255"
+"y" "0.7"
+"x" "-1"
+"spawnflags" "1"
+"classname" "game_text"
+}
+{
 "origin" "-1253 -2030 -783"
 "message" "The tracks need a keycard to be reactivated."
 "targetname" "doortext1"
@@ -4374,56 +4484,142 @@
 "fadeout" "3"
 "fadein" "0.02"
 "effect" "2"
-"color" "255 255 255"
-"color2" "105 105 200"
+"color" "255 0 0 125"
+"color2" "0 0 0"
 "y" "0.7"
 "x" "-1"
 "classname" "game_text"
 }
 {
-"origin" "-1253 -2030 -783"
-"message" "Keycard acquired."
-"targetname" "doortext2"
-"spawnflags" "2"
-"fxtime" "0.02"
-"channel" "1"
-"holdtime" "2"
-"fadeout" "2"
-"fadein" "0.02"
-"effect" "2"
-"color" "255 255 255"
-"color2" "105 105 200"
-"y" "0.7"
-"x" "-1"
-"classname" "game_text"
-}
-{
-"origin" "-1058 -2328 -831"
-"item_name" "teokeycard"
-"display_name" "Traintracks Emergency Override Keycard"
-"description" "Seems this keycard can be used to reactivate the traintracks."
-"target_on_collect" "doortext2"
-"weight" "1"
-"skin" "1"
+"origin" "0 0 0"
+"target_on_use" "key4_used_r"
+"target_on_return" "key4_returned_msg"
+"target_on_drop" "key4_dropped_msg"
+"target_on_collect" "key4_collect_msg"
 "holder_keep_on_death" "0"
 "holder_can_drop" "1"
-"return_timelimit" "10"
-"carried_sequence" "1"
-"carried_sequencename" "idle"
-"carried_hidden" "1"
-"targetname" "keycard1"
-"model" "models/w_security.mdl"
+"return_timelimit" "15"
+"sequence" "0"
+"sequencename" "idle"
+"carried_sequence" "2"
+"carried_sequencename" "carried"
+"weight" "1.0"
+"description" "Seems this keycard can be used to reactivate the traintracks."
+"display_name" "Traintracks Emergency Override Keycard"
+"item_name" "key4"
+"targetname" "key4_key4"
 "maxhullsize" "0 0 0"
 "minhullsize" "0 0 0"
-"spawnflags" "768"
+"scale" "1"
+"skin" "1"
+"body" "0"
+"rendercolor" "0 0 0"
+"angles" "0 0 0"
+"model" "models/scmod/item_security.mdl"
+"item_icon" "scmod/item_keycard.spr"
 "classname" "item_inventory"
+}
+{
+"origin" "256 -208 -96"
+"message" "Traintracks keycard has been collected."
+"targetname" "key4_collect_msg"
+"channel" "4"
+"fxtime" "0.25"
+"holdtime" "2"
+"fadeout" "0.5"
+"fadein" "0.5"
+"color2" "0 0 160"
+"color" "128 128 255"
+"y" "0.7"
+"x" "-1"
+"spawnflags" "1"
+"classname" "game_text"
+}
+{
+"origin" "256 -208 -80"
+"message" "Traintracks keycard has been dropped."
+"targetname" "key4_dropped_msg"
+"channel" "4"
+"fxtime" "0.25"
+"holdtime" "2"
+"fadeout" "0.5"
+"fadein" "0.5"
+"color2" "160 80 0"
+"color" "255 192 128"
+"y" "0.7"
+"x" "-1"
+"spawnflags" "1"
+"classname" "game_text"
+}
+{
+"origin" "256 -208 -64"
+"message" "Traintracks keycard has returned."
+"targetname" "key4_returned_msg"
+"channel" "4"
+"fxtime" "0.25"
+"holdtime" "2"
+"fadeout" "0.5"
+"fadein" "0.5"
+"color2" "160 160 0"
+"color" "255 255 128"
+"y" "0.7"
+"x" "-1"
+"spawnflags" "1"
+"classname" "game_text"
+}
+{
+"origin" "887 -1189 -487"
+"targetname" "key4_used_r"
+"target" "item4kill"
+"spawnflags" "1"
+"triggerstate" "2"
+"classname" "trigger_relay"
+}
+{
+"origin" "728 -376 -524"
+"key4_key4" "0#2"
+"key4_used" "3#2"
+"key4_used" "0.1"
+"doortext1" "0#2"
+"key4_returned_msg" "0#2"
+"key4_dropped_msg" "0#2"
+"key4_collect_msg" "0#2"
+"targetname" "item4kill"
+"classname" "multi_manager"
+}
+{
+"origin" "256 -208 -80"
+"message" "Traintracks keycard was used."
+"targetname" "key4_used"
+"channel" "4"
+"fxtime" "0.25"
+"holdtime" "2"
+"fadeout" "0.5"
+"fadein" "0.5"
+"color2" "160 80 0"
+"color" "255 192 128"
+"y" "0.7"
+"x" "-1"
+"spawnflags" "1"
+"classname" "game_text"
+}
+{
+"origin" "-2680 -128 -821"
+"angles" "0 -90 0"
+"targetname" "padlock_icon1"
+"scale" "0.6"
+"movetype" "5"
+"model" "models/cubemath/padlock.mdl"
+"topcolor" "255"
+"classname" "item_generic"
 }
 {
 "model" "*265"
 "target" "both_stop_perlock"
 "rendercolor" "0 0 0"
 "spawnflags" "33"
-"item_name_required" "teokeycard"
+"item_name_required" "key4"
+"pass_destroy_item_name" "key4"
 "target_on_fail" "doortext1"
 "targetname" "lockedbtn"
 "classname" "func_button"
@@ -4514,26 +4710,36 @@
 {
 "origin" "-2551 241 -916"
 "angles" "0 0 0"
+"targetname" "rail_sparks"
+"spawnflags" "64"
 "classname" "env_spark"
 }
 {
 "origin" "-2287 260 -919"
 "angles" "0 0 0"
+"targetname" "rail_sparks"
+"spawnflags" "64"
 "classname" "env_spark"
 }
 {
 "origin" "-1851 228 -927"
 "angles" "0 0 0"
+"targetname" "rail_sparks"
+"spawnflags" "64"
 "classname" "env_spark"
 }
 {
 "origin" "-1808 238 -916"
 "angles" "0 0 0"
+"targetname" "rail_sparks"
+"spawnflags" "64"
 "classname" "env_spark"
 }
 {
 "origin" "-1525 260 -918"
 "angles" "0 0 0"
+"targetname" "rail_sparks"
+"spawnflags" "64"
 "classname" "env_spark"
 }
 {
@@ -4565,8 +4771,15 @@
 }
 {
 "model" "*274"
+"keep_inventory" "1"
 "map" "instinct_6"
 "classname" "trigger_changelevel"
+}
+{
+"origin" "-3032 -2700 -448"
+"angles" "0 357 0"
+"rendercolor" "0 0 0"
+"classname" "monster_babycrab"
 }
 {
 "origin" "-1135 -2615 -448"
@@ -4622,6 +4835,8 @@
 "model" "*277"
 "damagetype" "256"
 "dmg" "100000"
+"targetname" "electrified_rail"
+"spawnflags" "32"
 "classname" "trigger_hurt"
 }
 {
@@ -4646,8 +4861,19 @@
 "classname" "env_sprite"
 }
 {
+"origin" "-992 -2909 -859"
+"classname" "point_checkpoint"
+}
+{
+"origin" "-2677 -218 -859"
+"classname" "point_checkpoint"
+}
+{
 "percent_lock_1_r1" "0"
 "stop171" "0"
+"electrified_rail" "0#2"
+"rail_sparks" "0#2"
+"padlock_icon1" "0#2"
 "targetname" "both_stop_perlock"
 "classname" "multi_manager"
 }
@@ -5439,3 +5665,4 @@
 "targetname" "percent_lock_1"
 "classname" "multi_manager"
 }
+ 
