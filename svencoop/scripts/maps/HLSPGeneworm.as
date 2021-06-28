@@ -3,7 +3,6 @@
 #include "HLSPClassicMode"
 #include "cubemath/geneworm"
 // #include "cubemath/weapon_debug"
-#include "ofnvision"
 
 void MapInit()
 {
@@ -15,5 +14,4 @@ void MapInit()
 	g_EngineFuncs.CVarSetFloat( "mp_hevsuit_voice", 1 );
 	
 	ClassicModeMapInit();
-  g_nv.MapInit();
 }

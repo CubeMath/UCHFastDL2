@@ -4,7 +4,6 @@
 #include "cubemath/trigger_once_mp"
 //#include "cubemath/weapon_debug"
 #include "cubemath/polling_check_players"
-#include "ofnvision"
 
 void MapInit()
 {
@@ -17,5 +16,4 @@ void MapInit()
 	
 	ClassicModeMapInit();
   poll_check();
-  g_nv.MapInit();
 }

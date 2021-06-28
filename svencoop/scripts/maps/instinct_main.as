@@ -3,7 +3,6 @@
 #include "cubemath/trigger_multiple_mp"
 #include "cubemath/func_wall_custom"
 #include "instinct_polygon"
-#include "crouch_spawn"
 
 array<Vector> old_ply_posis;
 array<float> old_ply_velocity;
@@ -143,8 +142,6 @@ void MapInit(){
 	RegisterTriggerOnceMpEntity();
 	RegisterTriggerMultipleMpEntity();
 	RegisterFuncWallCustomEntity();
-    if(g_Engine.mapname != "instinct_3")
-        g_crspawn.Disable();
   g_Scheduler.SetTimeout( "just_fallingdamage", 0.1f );
   
   old_ply_posis.resize(g_Engine.maxClients);
